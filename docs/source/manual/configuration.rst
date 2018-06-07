@@ -612,6 +612,7 @@ Console
           timeZone: UTC
           target: stdout
           logFormat: "%-5p [%d{ISO8601,UTC}] %c: %m%n%rEx"
+          includeCallerData: true
           filterFactories:
             - type: URI
 
@@ -633,6 +634,8 @@ target                 stdout                                   The name of the 
                                                                 Can be ``stdout`` or ``stderr``.
 logFormat              %-5p [%d{ISO8601,UTC}] %c: %m%n%rEx      The Logback pattern with which events will be formatted. See
                                                                 the Logback_ documentation for details.
+includeCallerData      false                                    Whether to include caller data, required to include line numbers.
+                                                                Beware, is considered expensive.
 filterFactories        (none)                                   The list of filters to apply to the appender, in order, after
                                                                 the threshold.
 neverBlock             false                                    Prevent the wrapping asynchronous appender from blocking when its underlying queue is full.
@@ -662,6 +665,7 @@ File
           archivedFileCount: 5
           timeZone: UTC
           logFormat: "%-5p [%d{ISO8601,UTC}] %c: %m%n%rEx"
+          includeCallerData: true
           bufferSize: 8KB
           immediateFlush: true
           filterFactories:
@@ -696,6 +700,8 @@ maxFileSize                  (unlimited)                                The maxi
 timeZone                     UTC                                        The time zone to which event timestamps will be converted.
 logFormat                    %-5p [%d{ISO8601,UTC}] %c: %m%n%rEx        The Logback pattern with which events will be formatted. See
                                                                         the Logback_ documentation for details.
+includeCallerData            false                                      Whether to include caller data, required to include line numbers.
+                                                                        Beware, is considered expensive.
 filterFactories              (none)                                     The list of filters to apply to the appender, in order, after
                                                                         the threshold.
 neverBlock                   false                                      Prevent the wrapping asynchronous appender from blocking when its underlying queue is full.
@@ -724,6 +730,7 @@ Syslog
           threshold: ALL
           stackTracePrefix: \t
           logFormat: "%-5p [%d{ISO8601,UTC}] %c: %m%n%rEx"
+          includeCallerData: true
           filterFactories:
             - type: URI
 
@@ -741,6 +748,8 @@ facility                     local0                                 The syslog f
 threshold                    ALL                                    The lowest level of events to write to the file.
 logFormat                    %-5p [%d{ISO8601,UTC}] %c: %m%n%rEx    The Logback pattern with which events will be formatted. See
                                                                     the Logback_ documentation for details.
+includeCallerData            false                                  Whether to include caller data, required to include line numbers.
+                                                                    Beware, is considered expensive.
 stackTracePrefix             \t                                     The prefix to use when writing stack trace lines (these are sent
                                                                     to the syslog server separately from the main message)
 filterFactories              (none)                                 The list of filters to apply to the appender, in order, after
